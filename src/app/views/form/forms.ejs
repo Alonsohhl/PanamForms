@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Papelera Panamericana</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.css" />
+  <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+  <div class="container ">
+    <h1 class="brand"><span>Papelera</span> Panamericana</h1>
+    <div class="wrapper animated bounceInLeft">
+      <div class="company-info">
+        <h3>Papelera Panamericana</h3>
+        <ul>
+          <li><i class="fa fa-road"></i> 44 Something st</li>
+          <li><i class="fa fa-phone"></i> (555) 555-5555</li>
+          <li><i class="fa fa-envelope"></i> test@acme.test</li>
+        </ul>
+      </div>
+      <div class="contacts">
+          <div class="row">
+              
+              <form class=" needs-validation " novalidate method="POST" action="/enviar">
+                
+                <h4 class="mb-3">1. Datos Personales</h4>
+                <div class="row">
+                  <div class="col-md-6 mb-6">
+                    <label for="firstName">Nombre</label>
+                    <input type="text" class="form-control" id="nombre" placeholder="" value="" required name="nombre">
+                    <div class="invalid-feedback">
+                      ingresar un nombre valido.
+                    </div>
+                  </div>
+                  <div class="col-md-6 mb-6">
+                    <label for="lastName">Apellidos</label>
+                    <input type="text" class="form-control" id="lastName" placeholder="" value="" required name="apellido">
+                    <div class="invalid-feedback">
+                      ingresar un apellido valido..
+                    </div>
+                  </div>
+                </div>
+  
+                <div class="row">
+                  <div class="col-md-6 mb-6">
+                    <label for="state">Tipo de Documento</label>
+                    <select class="custom-select d-block w-100" id="state" required name="tipdoc">
+                      <option value="">Elejir...</option>
+                      <option value="DNI">DNI</option>
+                      <option value="PASAPORTE">PASAPORTE</option>
+                    </select>
+                    <div class="invalid-feedback">
+                      Ingresa un tipo de documento valido.
+                    </div>
+                  </div>
+  
+                  <div class="col-md-6 mb-9">
+                    <label for="username">Documento</label>
+                    <div class="input-group">
+                      <div class="input-group-prepend">
+                        <span class="input-group-text">#</span>
+                      </div>
+                      <input type="text" class="form-control" id="username" placeholder="Nro. Documento" required name="doc">
+                      <div class="invalid-feedback" style="width: 100%;">
+                        El numero de documento es obligatorio.
+                      </div>
+                    </div>
+                  </div>
+                </div>
+  
+  
+  
+  
+  
+                <div class="mb-3">
+                  <label for="email">Correo Electronico <span class="text-muted">(Opcional)</span></label>
+                  <input type="email" class="form-control" id="email" placeholder="tu@correo.com" name="email">
+                  <div class="invalid-feedback">
+                    Por favor ingresa una dirección electrónica con formato valido.
+                  </div>
+                </div>
+  
+                <div class="mb-3">
+                  <label for="address">Dirección</label>
+                  <input type="text" class="form-control" id="address" placeholder="1234 Av.Ejercito" required name="direccion">
+                  <div class="invalid-feedback">
+                    Ingresa tu dirección fisica
+                  </div>
+                </div>
+  
+  
+                <hr class="mb-4">
+  
+  
+                <h4 class="mb-3">II. Datos Referentes</h4>
+                <label for="referentes">Unidad(es) Organizativas Involucradas</label>
+                <div class="custom-control custom-checkbox">
+                  <input type="checkbox" class="custom-control-input" id="Directorio">
+                  <label class="custom-control-label" for="Directorio">Directorio</label>
+                </div>
+                <div class="custom-control custom-checkbox">
+                  <input type="checkbox" class="custom-control-input" id="Gerente-General">
+                  <label class="custom-control-label" for="Gerente-General">Gerencia General</label>
+                </div>
+                <div class="custom-control custom-checkbox">
+                  <input type="checkbox" class="custom-control-input" id="Gerente-Admin">
+                  <label class="custom-control-label" for="Gerente-Admin">Gerente Administrativo</label>
+                </div>
+                <div class="custom-control custom-checkbox">
+                  <input type="checkbox" class="custom-control-input" id="Gerente-Fin">
+                  <label class="custom-control-label" for="Gerente-Fin">Gerente Financiero Rep. de la Dirección</label>
+                </div>
+                <div class="custom-control custom-checkbox">
+                  <input type="checkbox" class="custom-control-input" id="Gerente-Planta">
+                  <label class="custom-control-label" for="Gerente-Planta">Gerente de Planta</label>
+                </div>
+                <div class="custom-control custom-checkbox">
+                  <input type="checkbox" class="custom-control-input" id="Gerente-Comer">
+                  <label class="custom-control-label" for="Gerente-Comer">Gerente de Comercialización</label>
+                </div>
+  
+  
+                <br>
+                <br>
+  
+                <label for="sug-queja">Marque la casilla que corresponda</label>
+                <div class="d-block my-3">
+                  <div class="custom-control custom-radio">
+                    <input id="credit" name="tipform" type="radio" class="custom-control-input" checked required value="Sugerencia"> 
+                    <label class="custom-control-label" for="credit">Sugerencia</label>
+                    
+                  </div>
+                  <div class="custom-control custom-radio">
+                    <input id="debit" name="tipform" type="radio" class="custom-control-input" required value="Queja">
+                    <label class="custom-control-label" for="debit">Queja</label>
+                  </div>
+  
+                </div>
+  
+                <h4 class="mb-3">III. Materia de Objeto de la Consulta Sugerencia Queja o Reclamo</h4>
+                <textarea class="form-control" id="sugerencia" rows="4" name="texto"></textarea>
+  
+  
+                <hr class="mb-4">
+                <button class="btn btn-primary btn-lg btn-block" type="submit">Presentar Formato</button>
+              </form>
+            </div>
+        
+        
+      </div>
+    </div>
+  </div>
+  <!-- Bootstrap core JavaScript
+      ================================================== -->
+      <!-- Placed at the end of the document so the pages load faster -->
+      <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> -->
+      <!-- <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script> -->
+
+      <script src="assets/js/holder.min.js"></script>
+
+      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.css" />
+
+
+      <script>
+        // Example starter JavaScript for disabling form submissions if there are invalid fields
+        (function() {
+          'use strict';
+
+          window.addEventListener('load', function() {
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            var forms = document.getElementsByClassName('needs-validation');
+
+            // Loop over them and prevent submission
+            var validation = Array.prototype.filter.call(forms, function(form) {
+              form.addEventListener('submit', function(event) {
+                if (form.checkValidity() === false) {
+                  event.preventDefault();
+                  event.stopPropagation();
+                }
+                form.classList.add('was-validated');
+              }, false);
+            });
+          }, false);
+        })();
+      </script>
+</body>
+</html>
