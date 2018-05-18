@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Papelera Panamericana</title>
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
+  <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js" integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe" crossorigin="anonymous"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.css" />
+  <link rel="stylesheet" href="css/style.css">
+  <link href="css/estilo.css" rel="stylesheet">
+
+
+  <link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="img/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="img/favicon/favicon-16x16.png">
+  <link rel="manifest" href="img/favicon/site.webmanifest">
+  <link rel="mask-icon" href="img/favicon/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
+</head>
+<body>
+    <div id="loader2" style="visibility:hidden;">
+        <div id="msg" >
+            <i class="far fa-envelope fa-4x"></i>
+        </div>
+ 
+        <div class="windows8">
+            <div class="wBall" id="wBall_1">
+              <div class="wInnerBall"></div>
+            </div>
+            <div class="wBall" id="wBall_2">
+              <div class="wInnerBall"></div>
+            </div>
+            <div class="wBall" id="wBall_3">
+              <div class="wInnerBall"></div>
+            </div>
+            <div class="wBall" id="wBall_4">
+              <div class="wInnerBall"></div>
+            </div>
+            <div class="wBall" id="wBall_5">
+              <div class="wInnerBall"></div>
+            </div>
+          </div>
+    </div>
+    <header>
+        <!-- Fixed navbar -->
+        <nav id="navbar" class="navbar navbar-expand-md navbar-dark fixed-top bg-secondary">
+         
+          <a class="navbar-brand" href="http://www.panam.com.pe">Papelera Panamericana</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item">
+                <a class="nav-link" href="/">Sugerencias </a>
+              </li>
+              <li class="nav-item active">
+                <a class="nav-link" href="/denuncia">Denuncias <span class="sr-only">(current)</span></a>
+              </li>
+              
+            </ul>
+            
+          </div>
+        </nav>
+      </header>
+
+  <div class="container ">
+    <br>
+    <br>
+    
+    <div class="wrapper animated bounceInLeft">
+      <div class="company-info">
+         <img class="mb-4" src="img/logo.png" alt="" width="324" height="72">
+        <h3>Contacto</h3>        
+        <ul>
+          <li><i class="fa fa-road"></i>  Eduardo López de Romaña R4   Parque Industrial - Arequipa - Perú
+            </li>
+          <li><i class="fa fa-phone"></i> Telf. +51 54 219326 anexo 117 </li>
+          <li><i class="fa fa-phone"></i> Fax   +51 54 236591  </li>
+          <li><i class="fa fa-envelope"></i> info@panam.com.pe</li>
+        </ul>
+      </div>
+      <div class="contacts">
+          <div class="row">
+            
+              <form class=" needs-validation " novalidate method="POST" action="/enviar_denuncia">
+                <h1 class="mb-3">Formato de presentación de <strong>Denuncias </strong></h1>
+              
+                <% if (msg=='1'){  %>
+                  <div class="alert alert-success">
+                    <strong>Mensaje Enviado Correctamente</strong> 
+                  </div>
+                <% }   %>
+                
+                
+                <h4 class="mb-3">1. Detalle del caso</h4>
+                <div class="row">
+                  <div class="col-md-12 mb-6">
+                    <label for="firstName"> <strong>A. Tipo de denuncia </strong></label>
+                    <input type="text" class="form-control" id="tipden" placeholder="" value="" required name="tipden">
+                    <div class="invalid-feedback">
+                      ingresar un nombre valido.
+                    </div>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="col-md-12 mb-6">
+                    <label for="firstName"> <strong>B. Personas involucaras de la empresa: </strong></label>
+                    
+                  </div>
+                  
+                </div>
+
+                <table class="table table-sm">
+                    <thead>
+                      <tr>
+                        <th scope="col">#</th>
+                        <th scope="col">Nombres</th>
+                        <th scope="col">Apellidos</th>
+                        <th scope="col">Relación con la compañía</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <th scope="row">1</th>
+                        
+                        <td>
+                            <div class="">
+                                <input type="text" class="form-control" id="tipden" placeholder="" value="" required name="nombre1">
+                                <div class="invalid-feedback">
+                                  ingresar un nombre valido.
+                                </div>
+                              </div>
+                        </td>
+                        <td>
+                            <div class="">
+                                <input type="text" class="form-control" id="lastName" placeholder="" value="" required name="apellido1">
+                                <div class="invalid-feedback">
+                                  ingresar un apellido valido..
+                                </div>
+                              </div>
+                        </td>
+                        <td>
+                          <div class="">
+                            <input type="text" class="form-control" id="lastName" placeholder="" value="" required name="rel_com1">
+                            <div class="invalid-feedback">
+                              ingresar un campo valido.
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                      <th scope="row">2</th>
+                        
+                        <td>
+                            <div class="">
+                                <input type="text" class="form-control" id="tipden" placeholder="" value=""  name="nombre2">
+                                <div class="invalid-feedback">
+                                  ingresar un nombre valido.
+                                </div>
+                              </div>
+                        </td>
+                        <td>
+                            <div class="">
+                                <input type="text" class="form-control" id="lastName" placeholder="" value=""  name="apellido2">
+                                <div class="invalid-feedback">
+                                  ingresar un apellido valido..
+                                </div>
+                              </div>
+                        </td>
+                        <td>
+                          <div class="">
+                            <input type="text" class="form-control" id="lastName" placeholder="" value=""  name="rel_com2">
+                            <div class="invalid-feedback">
+                              ingresar un campo valido.
+                            </div>
+                          </div>
+                        </td>
+                      </tr>
+                      <tr>
+                          <th scope="row">3</th>
+                        
+                          <td>
+                              <div class="">
+                                  <input type="text" class="form-control" id="tipden" placeholder="" value=""  name="nombre3">
+                                  <div class="invalid-feedback">
+                                    ingresar un nombre valido.
+                                  </div>
+                                </div>
+                          </td>
+                          <td>
+                              <div class="">
+                                  <input type="text" class="form-control" id="lastName" placeholder="" value=""  name="apellido3">
+                                  <div class="invalid-feedback">
+                                    ingresar un apellido valido..
+                                  </div>
+                                </div>
+                          </td>
+                          <td>
+                            <div class="">
+                              <input type="text" class="form-control" id="lastName" placeholder="" value=""  name="rel_com3">
+                              <div class="invalid-feedback">
+                                ingresar un campo valido.
+                              </div>
+                            </div>
+                          </td>
+                        </tr>
+                        
+                    </tbody>
+                  </table>
+  
+                <div class="row">
+                  <div class="col-md-12 mb-6">
+                    <label for="state"> <strong>C. Fecha del incidente:</strong></label>
+                    <input type="date"class="form-control" id="tipden" placeholder="" value="" required name="tipden" name="fecinc">
+                    
+                    <div class="invalid-feedback">
+                      Ingrese una fecha valida
+                    </div>
+
+                  </div>
+                </div>
+                  
+
+                <label for="firstName"><strong>D. Lugar del Incidente:</strong></label>
+                <div class="row">
+                  
+                  <div class="col-md-6 mb-6">
+                    <label for="firstName">Ciudad:</label>
+                    <input type="text" class="form-control" id="tipden" placeholder="" value="" required name="ciuinc">
+                    <div class="invalid-feedback">
+                      Ingrese una Ciudad.
+                    </div>
+                  </div>
+                  <div class="col-md-6 mb-6">
+                      <label for="firstName">Lugar:</label>
+                      <input type="text" class="form-control" id="tipden" placeholder="" value="" required name="luginc">
+                      <div class="invalid-feedback">
+                        Ingrese un lugar.
+                      </div>
+                  </div>
+                </div>
+
+                <div class="mb-3">
+                    <label for="firstName"> <strong>E.Descripción</strong>  (incluir detalles que sirvan para evaluar la denuncia):</label>
+                    <textarea class="form-control" id="tipden" rows="4" name="des" required></textarea>
+                    
+                    <div class="invalid-feedback">
+                      Ingrese una descripción.
+                    </div>
+                </div>
+
+                <label for="firstName"><strong>F. Precisiones:</strong></label>
+
+                    
+                <div class="mb-3">
+                  <label for="email">-¿Existen personas externas a la empresa que han participado? </label>
+                  <input type="text" class="form-control" id="preg1"  name="preg1">
+                </div>
+
+                <div class="mb-3">
+                  <label for="email">-¿Sabe si alguién de la empresa tiene conocimiento de estos hechos? </label>
+                  <input type="text" class="form-control" id="preg1"  name="preg2">
+                </div>
+                  
+                <div class="mb-3">
+                  <label for="email">-¿Sabe qué tipo de beneficio obtienen las personas involucradas? </label>
+                  <input type="text" class="form-control" id="preg1"  name="preg3">
+                </div>
+
+                <label for="firstName"><strong>G. Donde podría obtener evidencia la empresa:</strong></label>
+                <div class="mb-3">
+                    
+                    <input type="text" class="form-control" id="address"  name="obtevi">
+                    
+                  </div>
+  
+  
+                <hr class="mb-4">
+                <h5 class="mb-3 text-muted text-justify">NUESTRAS NORMAS INTERNAS ESTABLECEN QUE SU IDENTIFICACION ES RESERVADA Y SOLO SERVIRA PARA QUE LA PERSONA ESPECIALIZADA SE COMUNIQUE CON USTED EN CASO DE REQUERIR MAYOR DETALLE DE LA INFORMACION.</h5>
+                <h4 class="mb-3">  <strong>2. Información del Denunciante</strong> (Datos no obligatorios):</h4>
+
+                <div class="mb-3">
+                  <label for="email">Su relación con la compañia: </label>
+                  <input type="text" class="form-control" id="preg1"  name="denrel">
+                </div>
+                <div class="row">
+                    <div class="col-md-6 mb-6">
+                      <label for="firstName">Nombres:</label>
+                      <input type="text" class="form-control" id="nombre" placeholder="" value=""  name="dennom">
+                      <div class="invalid-feedback">
+                        ingresar un nombre valido.
+                      </div>
+                    </div>
+                    <div class="col-md-6 mb-6">
+                      <label for="lastName">Apellidos:</label>
+                      <input type="text" class="form-control" id="lastName" placeholder="" value=""  name="denape">
+                      <div class="invalid-feedback">
+                        ingresar un apellido valido..
+                      </div>
+                    </div>
+                  </div>
+                  <div class="row">
+                      <div class="col-md-3 mb-6">
+                        <label for="firstName">Teléfono:</label>
+                        <input type="text" class="form-control" id="nombre" placeholder="" value=""  name="dentel">
+                      
+                      </div>
+                      <div class="col-md-9 mb-6">
+                        <label for="lastName">E-mail:</label>
+                        <input type="email" class="form-control" id="email"  value=""  name="denemail">
+                        <div class="invalid-feedback">
+                          ingresar un correo valido..
+                        </div>
+                      </div>
+                    </div>
+  
+  
+                <br>
+                <br>
+  
+                <label for="sug-queja">Desea mantener su identidad en secreto</label>
+                <div class="d-block my-3">
+                  <div class="custom-control custom-radio">
+                    <input id="credit" name="tipform" type="radio" class="custom-control-input" checked required value="infsi"> 
+                    <label class="custom-control-label" for="credit">si</label>
+                    
+                  </div>
+                  <div class="custom-control custom-radio">
+                    <input id="debit" name="tipform" type="radio" class="custom-control-input" required value="infno">
+                    <label class="custom-control-label" for="debit">no</label>
+                  </div>
+  
+                </div>
+  
+                
+  
+                <hr class="mb-4">
+                <button class="btn btn-primary btn-lg btn-block" type="submit">Presentar Formato    
+                </button>
+                <div style="display:none;" id="loader"></div>
+              </form>
+            </div>
+        
+        
+      </div>
+    </div>
+  </div>
+  <!-- Bootstrap core JavaScript
+      ================================================== -->
+      <!-- Placed at the end of the document so the pages load faster -->
+      <!-- <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script> -->
+      <!-- <script>window.jQuery || document.write('<script src="../../assets/js/vendor/jquery-slim.min.js"><\/script>')</script> -->
+
+      <script src="assets/js/holder.min.js"></script>
+
+      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/js/bootstrap.min.js" integrity="sha384-smHYKdLADwkXOn1EmN1qk/HfnUcbVRZyYmZ4qpPea6sjB/pTJ0euyQp0Mk8ck+5T" crossorigin="anonymous"></script>
+      <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.css" />
+
+
+      <script>
+
+        //var myVar;
+        //function myFunction() {
+          //  myVar = setTimeout(showPage, 5000);
+        //}
+        
+        //function showPage() {
+          //document.getElementById("loader").style.display = "display: inline";
+          //document.getElementById("myDiv").style.display = "block";
+        //}
+
+
+        // Example starter JavaScript for disabling form submissions if there are invalid fields
+        
+        (function() {
+          'use strict';
+
+          window.addEventListener('load', function() {
+            // Fetch all the forms we want to apply custom Bootstrap validation styles to
+            var forms = document.getElementsByClassName('needs-validation');
+            
+            // Loop over them and prevent submission
+            var validation = Array.prototype.filter.call(forms, function(form) {
+              form.addEventListener('submit', function(event) {
+                if (form.checkValidity() === false) {
+                  event.preventDefault();
+                  event.stopPropagation();
+                }else{
+                  document.getElementById("loader2").style.visibility = "visible";
+                  document.getElementById("navbar").style.visibility = "hidden";
+                }
+                form.classList.add('was-validated');
+                
+              }, false);
+            });
+          }, false);
+        })();
+      </script>
+</body>
+</html>

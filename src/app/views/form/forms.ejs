@@ -7,26 +7,96 @@
   <title>Papelera Panamericana</title>
   <!-- Bootstrap CSS -->
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.1/css/bootstrap.min.css" integrity="sha384-WskhaSGFgHYWDcbwN70/dfYBj47jz9qbsMId/iRN3ewGhXQFZCSftd1LZCfmhktB" crossorigin="anonymous">
-  <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet" integrity="sha384-wvfXpqpZZVQGK6TAh5PVlGOfQNHSoD2xbE+QkPxCAFlNEevoEH3Sl0sibVcOQVnN" crossorigin="anonymous">
+  <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/all.js" integrity="sha384-xymdQtn1n3lH2wcu0qhcdaOpQwyoarkgLVxC/wZ5q7h9gHtxICrpcaSUfygqZGOe" crossorigin="anonymous"></script>
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.css" />
   <link rel="stylesheet" href="css/style.css">
+  <link href="css/estilo.css" rel="stylesheet">
+
+  <link rel="apple-touch-icon" sizes="180x180" href="img/favicon/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="img/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="img/favicon/favicon-16x16.png">
+  <link rel="manifest" href="img/favicon/site.webmanifest">
+  <link rel="mask-icon" href="img/favicon/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#da532c">
+  <meta name="theme-color" content="#ffffff">
 </head>
 <body>
+    <div id="loader2" style="visibility:hidden;">
+        <div id="msg" >
+            <i class="far fa-envelope fa-4x"></i>
+        </div>
+        
+        <!--img src="img/logo.png" alt="Logo Papelera Mensaje" width="280" height="65"-->
+        <div class="windows8">
+            <div class="wBall" id="wBall_1">
+              <div class="wInnerBall"></div>
+            </div>
+            <div class="wBall" id="wBall_2">
+              <div class="wInnerBall"></div>
+            </div>
+            <div class="wBall" id="wBall_3">
+              <div class="wInnerBall"></div>
+            </div>
+            <div class="wBall" id="wBall_4">
+              <div class="wInnerBall"></div>
+            </div>
+            <div class="wBall" id="wBall_5">
+              <div class="wInnerBall"></div>
+            </div>
+          </div>
+    </div>
+
+    <header>
+        <!-- Fixed navbar -->
+        <nav id="navbar" class="navbar navbar-expand-md navbar-dark fixed-top bg-secondary">
+         
+          <a class="navbar-brand" href="http://www.panam.com.pe">Papelera Panamericana</a>
+          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+          </button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav mr-auto">
+              <li class="nav-item active">
+                <a class="nav-link" href="/">Sugerencias <span class="sr-only">(current)</span></a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="/denuncia">Denuncias</a>
+              </li>
+              
+            </ul>
+            
+          </div>
+        </nav>
+      </header>
+
   <div class="container ">
-    <h1 class="brand"><span>Papelera</span> Panamericana</h1>
+    <br>
+    <br>
+    
     <div class="wrapper animated bounceInLeft">
       <div class="company-info">
-        <h3>Papelera Panamericana</h3>
+         <img class="mb-4" src="img/logo.png" alt="" width="324" height="72">
+        <h3>Contacto</h3>        
         <ul>
-          <li><i class="fa fa-road"></i> 44 Something st</li>
-          <li><i class="fa fa-phone"></i> (555) 555-5555</li>
-          <li><i class="fa fa-envelope"></i> test@acme.test</li>
+          <li><i class="fa fa-road"></i>  Eduardo López de Romaña R4   Parque Industrial - Arequipa - Perú
+            </li>
+          <li><i class="fa fa-phone"></i> Telf. +51 54 219326 anexo 117 </li>
+          <li><i class="fa fa-phone"></i> Fax   +51 54 236591  </li>
+          <li><i class="fa fa-envelope"></i> info@panam.com.pe</li>
         </ul>
       </div>
       <div class="contacts">
           <div class="row">
-              
+            
               <form class=" needs-validation " novalidate method="POST" action="/enviar">
+                <h1 class="mb-3">Formato de presentación de sugerencias</h1>
+                
+                <% if (msg=='1'){  %>
+                  <div class="alert alert-success">
+                    <strong>Mensaje Enviado Correctamente</strong> 
+                  </div>
+                <% }   %>
+                
                 
                 <h4 class="mb-3">1. Datos Personales</h4>
                 <div class="row">
@@ -147,7 +217,11 @@
   
   
                 <hr class="mb-4">
-                <button class="btn btn-primary btn-lg btn-block" type="submit">Presentar Formato</button>
+                <button class="btn btn-primary btn-lg btn-block" type="submit">Presentar Formato
+
+                    
+                </button>
+                <div style="display:none;" id="loader"></div>
               </form>
             </div>
         
@@ -170,22 +244,25 @@
 
 
       <script>
-        // Example starter JavaScript for disabling form submissions if there are invalid fields
+        
         (function() {
           'use strict';
-
           window.addEventListener('load', function() {
             // Fetch all the forms we want to apply custom Bootstrap validation styles to
             var forms = document.getElementsByClassName('needs-validation');
-
+            
             // Loop over them and prevent submission
             var validation = Array.prototype.filter.call(forms, function(form) {
               form.addEventListener('submit', function(event) {
                 if (form.checkValidity() === false) {
                   event.preventDefault();
                   event.stopPropagation();
+                }else{
+                  document.getElementById("loader2").style.visibility = "visible";
+                  document.getElementById("navbar").style.visibility = "hidden";
                 }
                 form.classList.add('was-validated');
+                
               }, false);
             });
           }, false);
