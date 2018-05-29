@@ -1,4 +1,8 @@
 const controller = {};
+const fs = require('fs');
+//const fileUpload = require('express-fileupload');
+path = require('path'),
+
 
 nodemailer = require('nodemailer');
 
@@ -38,6 +42,7 @@ controller.enviar = (req, res) => {
       <li> Dirección: ${req.body.direccion}</li>
       <li> Motivo: ${req.body.tipform}</li>
       <li> Detalle: ${req.body.texto}</li>
+      
 
       
     </ul> 
@@ -58,10 +63,11 @@ controller.enviar = (req, res) => {
 
     let mailOptions = {
         from: '"Panam Mailer Contacto" <info@panam.com.pe>', // sender address
-        to: 'apoyo@panam.com.pe',//apoyo@panam.com.pe', // list of receivers
+        to: 'apoyo@panam.com.pe',// list of receivers
         subject: 'recepcion de sugerencias', // Subject line
         text: 'Revise el correo en un navegador valido, compatible con HTML', // plain text body
-        html: output // html body
+        html: output // html body ,
+        
     };
 
     // send mail with defined transport object
@@ -80,6 +86,20 @@ controller.enviar = (req, res) => {
   };
 
   controller.enviar_denuncia = (req, res) => {
+    if (req.files.varadj)
+    {
+      // The name of the input field (i.e. "sampleFile") is used to retrieve the uploaded file
+      let sampleFile = req.files.varadj;
+
+      // Use the mv() method to place the file somewhere on your server
+      sampleFile.mv(path.join('./', 'upload/' + req.files.varadj.name), function (err) {
+        if (err)
+          return res.status(500).send(err);
+
+     //   res.send('File uploaded!');
+      });
+    }
+  
     output =`
        <p> Denuncia </p>
        <h3> Detalle ========== </h3>
@@ -169,12 +189,12 @@ controller.enviar = (req, res) => {
         <li> Apellido:  ${req.body.denape}  </li>
         <li> Teléfono:  ${req.body.dentel}  </li>
         <li> e-mail:    ${req.body.denemail}  </li>
-
+       
         
          
        </ul> 
        `;
-   
+   //   <li> ruta de Adjunto: ${req.file.var_adj.path}</li>
        let transporter = nodemailer.createTransport({
          host: 'mail.panam.com.pe',
          port: 25,//587,
@@ -187,14 +207,55 @@ controller.enviar = (req, res) => {
            rejectUnauthorized:false
          }
        });
+
+    let mailOptions;
+    if (!req.files.varadj) {
+      mailOptions = {
+        from: '"Panam Mailer Contacto" <info@panam.com.pe>', // sender address
+        to: 'alonso.hl25@gmail.com',//'apoyo@panam.com.pe', // list of receivers
+        subject: 'recepcion de sugerencias', // Subject line
+        text: 'Formato de texto no valido, revisar en navegador compatible con HTML', // plain text body
+        html: output // html body
+      };
+    }
+    else {
+      mailOptions = {
+        from: '"Panam Mailer Contacto" <info@panam.com.pe>', // sender address
+        to: 'alonso.hl25@gmail.com',//'apoyo@panam.com.pe', // list of receivers
+        subject: 'recepcion de sugerencias', // Subject line
+        text: 'Formato de texto no valido, revisar en navegador compatible con HTML', // plain text body
+        html: output, // html body
+        attachments: [
+          {   // filename and content type is derived from path
+            path: path.join('./', 'upload/' + req.files.varadj.name)
+          }
+
+        ]
+      };
+      
+      
+
+    }
+
    
-       let mailOptions = {
+     /*  let mailOptions = {
            from: '"Panam Mailer Contacto" <info@panam.com.pe>', // sender address
-           to: 'apoyo@panam.com.pe', // list of receivers
+           to: 'alonso.hl25@gmail.com',//'apoyo@panam.com.pe', // list of receivers
            subject: 'recepcion de sugerencias', // Subject line
            text: 'Formato de texto no valido, revisar en navegador compatible con HTML', // plain text body
-           html: output // html body
-       };
+           html: output, // html body
+           attachments: [
+            {   // filename and content type is derived from path
+                path: path.join('./', 'upload/'+ filenamee)
+                  
+                  //  let sampleFile = req.files.varadj;} req.files.varadj.name)//req.body.var_adj.value
+                //filename: 'adjuntito.txt',
+              //   content: fs.createReadStream(path.join('./', 'upload/'+ filenamee)) //"./upload/"+req.files.varadj.name //
+               // })
+            }
+                    
+          ]
+       };*/
    
        // send mail with defined transport object
          transporter.sendMail(mailOptions, (error, info) => {
@@ -203,14 +264,18 @@ controller.enviar = (req, res) => {
            }
            console.log('Message sent: %s', info.messageId);   
            console.log('Preview URL: %s', nodemailer.getTestMessageUrl(info));
-           
+           fs.unlinkSync(path.join('./', 'upload/' + req.files.varadj.name));
            res.render('form/exito');
    //        res.render('form/forms', {msg:'1'});
        });
-    //   res.render('form/exito');
        console.log(output);
+       
+//       fs.unlink(path.join('./', 'upload/' + req.files.varadj.name), (err) => {
+//        if (err) throw err;
+//        console.log('successfully deleted /upload/file');
+//      });
      };
-
+     
 
 
   

@@ -87,7 +87,7 @@
       <div class="contacts">
           <div class="row">
             
-              <form class=" needs-validation " novalidate method="POST" action="/enviar_denuncia">
+              <form class=" needs-validation " novalidate method="post" action="/enviar_denuncia" encType="multipart/form-data">
                 <h1 class="mb-3">Formato de presentación de <strong>Denuncias </strong></h1>
               
                 <% if (msg=='1'){  %>
@@ -279,7 +279,14 @@
                     
                   </div>
   
-  
+                  <div class="mb-3">
+                    
+                    <input type="file" name="varadj" id="i_file">
+                    
+                  </div>
+                  
+
+                
                 <hr class="mb-4">
                 <h5 class="mb-3 text-muted text-justify">NUESTRAS NORMAS INTERNAS ESTABLECEN QUE SU IDENTIFICACION ES RESERVADA Y SOLO SERVIRA PARA QUE LA PERSONA ESPECIALIZADA SE COMUNIQUE CON USTED EN CASO DE REQUERIR MAYOR DETALLE DE LA INFORMACION.</h5>
                 <h4 class="mb-3">  <strong>2. Información del Denunciante</strong> (Datos no obligatorios):</h4>
@@ -344,9 +351,9 @@
                 </button>
                 <div style="display:none;" id="loader"></div>
               </form>
+
+              <div id="disp_tmp_path"></div>
             </div>
-        
-        
       </div>
     </div>
   </div>
@@ -402,6 +409,8 @@
             });
           }, false);
         })();
+
+        
       </script>
 </body>
 </html>

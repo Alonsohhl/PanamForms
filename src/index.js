@@ -15,6 +15,7 @@ const express = require('express'),
       morgan = require('morgan'),
       mysql = require('mysql'),
       myConnection = require('express-myconnection');
+      upload=require('express-fileupload');
       
 
 const app = express();
@@ -27,7 +28,9 @@ app.set('views', path.join(__dirname, 'app/views'));
 app.set('view engine', 'ejs');
 
 // middlewares
+app.use(upload());
 app.use(morgan('dev'));
+
 /*app.use(myConnection(mysql, {
   host: 'localhost',
   user: 'sapanam',
